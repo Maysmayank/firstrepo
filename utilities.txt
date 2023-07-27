@@ -1,0 +1,1 @@
+the utility has been modify to check head to git
