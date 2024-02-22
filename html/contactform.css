@@ -1,0 +1,100 @@
+*{
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: aquamarine;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container{
+    width: 60%;
+    padding: 30px 40px 50px 5px;
+    background-color: white;
+    box-shadow:  0 5px 10px rgba(0, 0, 0, 0.5);
+}
+.container .content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.container .content .left-side{
+    width: 30%;
+    height: 100%;
+    line-height: 30px;
+}
+.container .content .left-side .details{
+    margin: 14px;
+    text-align: center;
+}
+.content .left-side .details i{
+    font-size: 2rem;
+    margin-bottom: 0.2px;
+    color: blueviolet;
+}
+
+.container .content .right-side{
+    margin-left: 54px;
+    width: 100%;
+}
+.container .content .left-side .topic{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.content .para1 , .para2{
+    font-size: 0.9rem;
+}
+
+.container .right-side .headtopic{
+    font-size: 2rem;
+    color: blueviolet;
+    font-weight: 700;
+    padding-top: 10px;
+    margin-bottom: 15px;
+
+}
+
+form{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.right-side .input-box{
+    height: 50px;
+    width: 100%;
+}
+
+.right-side .input-box input, textarea{
+    height: 100%;
+    width: 100%;
+    border: none;
+    background-color: #F0F1F8;
+    padding-left: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    resize: none;
+    outline: none;
+}
+
+.right-side .message-box textarea{
+    min-height: 100px;
+    outline: none;
+    padding: 10px;
+}
+
+.right-side .sendbtn input{
+    border: none;
+    font-size: 1rem;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: blueviolet;
+    color: white;
+}
+

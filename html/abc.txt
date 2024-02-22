@@ -1,0 +1,282 @@
+#include<stdio.h>
+
+int main(){ 
+    char arr[30],s1[10],s2[10],s3[10];
+    int opt,i=0,len=0;
+    printf("1: Find out length of the string\n");
+    printf("2: Concatenate of the two string\n");
+    printf("3:Reverse of the string\n");
+    printf("4:Copy of the string\n");
+    printf("Enter the choice\n\n");
+    scanf("%d",&opt);
+    switch(opt){
+        case 1:
+            printf("Enter any string : ");
+            scanf("%s",arr);
+            for(i=0;arr[i]!='\0';i++);
+            printf("The length of the string %d",i);
+            break;
+        case 2:
+            printf("String Concatenation\n");
+            printf("Enter the First string : ");
+            scanf("%s", s1);
+            printf("Enter Second string : ");
+            scanf("%s",s2);
+         
+            for(i=0;s1[i]!='\0';i++){
+                s3[i]=s1[i];
+            }
+            s3[i]='\0';
+            for(int j=0;j<=i;j++){
+                s3[i+j]=s2[j];
+            }
+            printf("The Concatenated string is %s",s3);
+            break;
+        case 3:
+            printf(" Reverse the string ");
+            printf("\nEnter the string:\n");
+            scanf("%s",s1);
+            while(s1[i]!='\0'){
+                len=len+1;
+                i++ ;
+            }
+            for(i=len-1;i>=0;i--){
+                printf("%c",s1[i]);
+            }
+            break;
+        case 4:
+            printf(" String copying \n");
+            printf("Enter 1st string :");
+            scanf("%s",s1);
+            printf("Enter 2st string :");
+            scanf("%s",s2);
+            while(s2[i]!='\0'){
+                s1[i]=s2[i];
+                i++;
+            }
+            printf("%s",s1);
+            break;           
+        default:
+            printf("enter the valid option.");
+        }
+    return 0;
+}
+
+
+#include <stdio.h>
+
+#define MAX_SIZE 10
+
+void inputMatrix(int matrix[][MAX_SIZE], int rows, int columns) {
+    printf("Enter the elements of the matrix:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            scanf("%d", &matrix[i][j]);
+        }
+    }
+}
+
+void displayMatrix(int matrix[][MAX_SIZE], int rows, int columns) {
+    printf("Matrix:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void addMatrices(int matrix1[][MAX_SIZE], int matrix2[][MAX_SIZE], int result[][MAX_SIZE], int rows, int columns) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            result[i][j] = matrix1[i][j] + matrix2[i][j];
+        }
+    }
+}
+
+void subtractMatrices(int matrix1[][MAX_SIZE], int matrix2[][MAX_SIZE], int result[][MAX_SIZE], int rows, int columns) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            result[i][j] = matrix1[i][j] - matrix2[i][j];
+        }
+    }
+}
+
+void upperTriangle(int matrix[][MAX_SIZE], int rows, int columns) {
+    printf("Upper Triangle:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            if (j >= i) {
+                printf("%d ", matrix[i][j]);
+            } else {
+                printf("0 ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+void lowerTriangle(int matrix[][MAX_SIZE], int rows, int columns) {
+    printf("Lower Triangle:\n");
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            if (j <= i) {
+                printf("%d ", matrix[i][j]);
+            } else {
+                printf("0 ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+void transpose(int matrix[][MAX_SIZE], int rows, int columns, int result[][MAX_SIZE]) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++) {
+            result[j][i] = matrix[i][j];
+        }
+    }
+}
+
+void multiplyMatrices(int matrix1[][MAX_SIZE], int rows1, int columns1, int matrix2[][MAX_SIZE], int rows2, int columns2, int result[][MAX_SIZE]) {
+    for (int i = 0; i < rows1; i++) {
+        for (int j = 0; j < columns2; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < columns1; k++) {
+                result[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+        }
+    }
+}
+
+int main() {
+    int choice, rows1, columns1, rows2, columns2;
+    int matrix1[MAX_SIZE][MAX_SIZE], matrix2[MAX_SIZE][MAX_SIZE], result[MAX_SIZE][MAX_SIZE];
+
+    printf("Enter the number of rows and columns for matrix 1: ");
+    scanf("%d %d", &rows1, &columns1);
+    inputMatrix(matrix1, rows1, columns1);
+
+    printf("Enter the number of rows and columns for matrix 2: ");
+    scanf("%d %d", &rows2, &columns2);
+    inputMatrix(matrix2, rows2, columns2);
+
+    printf("Menu:\n");
+    printf("1. Add matrices\n");
+    printf("2. Subtract matrices\n");
+    printf("3. Find upper triangle\n");
+    printf("4. Find lower triangle\n");
+    printf("5. Find transpose\n");
+    printf("6. Multiply matrices\n");
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    switch (choice) {
+        case 1:
+            if (rows1 == rows2 && columns1 == columns2) {
+                addMatrices(matrix1, matrix2, result, rows1, columns1);
+                displayMatrix(result, rows1, columns1);
+            } else {
+                printf("Error: Matrices must have the same dimensions for addition.\n");
+            }
+            break;
+        case 2:
+            if (rows1 == rows2 && columns1 == columns2) {
+                subtractMatrices(matrix1, matrix2, result, rows1, columns1);
+                displayMatrix(result, rows1, columns1);
+            } else {
+                printf("Error: Matrices must have the same dimensions for subtraction.\n");
+            }
+            break;
+        case 3:
+            if (rows1 == columns1) {
+                upperTriangle(matrix1, rows1, columns1);
+            } else {
+                printf("Error: Matrix must be square for finding the upper triangle.\n");
+            }
+            break;
+        case 4:
+            if (rows1 == columns1) {
+                lowerTriangle(matrix1, rows1, columns1);
+            } else {
+                printf("Error: Matrix must be square for finding the lower triangle.\n");
+            }
+            break;
+        case 5:
+            transpose(matrix1, rows1, columns1, result);
+            displayMatrix(result, columns1, rows1);
+            break;
+        case 6:
+            if (columns1 == rows2) {
+                multiplyMatrices(matrix1, rows1, columns1, matrix2, rows2, columns2, result);
+                displayMatrix(result, rows1, columns2);
+            } else {
+                printf("Error: Number of columns in matrix 1 must be equal to the number of rows in matrix 2 for multiplication.\n");
+            }
+            break;
+        default:
+            printf("Invalid choice!\n");
+    }
+
+    return 0;
+}
+
+
+#include <stdio.h>
+#include<string.h>
+void main(){
+char str[100];
+char rev[100];
+printf("Enter the string : ");
+scanf("%s",str);
+int size=strlen(str);
+for (int i = size-1; i >=0; i--)
+{
+   rev[size-1-i]=str[i];
+}
+if (strcmp(str,rev)==0){
+   printf("string is palindrome. ");
+}
+else
+printf("String is not palindrome. ");
+
+}
+
+
+#include <stdio.h>
+void main() {
+    char ch;
+    do{  int opt;
+    char str[20], lenst[20];
+    printf("1. to find length of string\n");
+    printf("2. To concatenate teo strings\n");
+    printf("3. to get reverse of the string\n");
+    printf("4. to copy one string to another\n");
+    printf("5. Exit. \n");
+    printf("Enter your choice : ");
+    scanf("%d",&opt);
+    switch (opt)
+    {
+    case 1:
+        int count=0;
+        printf("Enter the string : ");
+        scanf("%s",&lenst);
+        for (int i = 0; lenst[i]!= '\0'; i++)
+        {
+            count++;
+        }
+        printf("The length of string is : %d \n",count);
+        
+        break;
+    
+    default:
+        break;
+    }
+    printf("Do you want to continue : ");
+    scanf("%c\n",&ch);
+        
+    } while (ch=='y');
+    
+   
+    
+}

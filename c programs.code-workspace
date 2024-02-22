@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../cpp"
+		},
+		{
+			"path": "../Dsa array2d"
+		},
+		{
+			"path": "../html"
+		},
+		{
+			"path": "../javascriptlearnin"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"iostream": "cpp",
+			"ostream": "cpp"
+		},
+		"liveServer.settings.multiRootWorkspaceName": "html"
+	},
+	"launch": {
+		"configurations": [
+			{
+				"type": "chrome",
+				"name": "http://C:\\Program Files\\nodejs",
+				"request": "launch",
+				"url": "http://C:\\Program Files\\nodejs"
+			}
+		]
+	}
+}

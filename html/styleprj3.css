@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(0, 0, 0, 0.87);
+}
+
+body .sidebarmenu{
+    right: 600px;
+    background:rgba(225,225,225, 0.1);
+    backdrop-filter: blur(100px);
+    height: 100vh;
+    width: 320px;
+    position:fixed;
+    box-shadow: 2px 2px 20px 10px rgba(0, 0, 10, 0.2);
+    top:0;
+    position: absolute;
+
+}
+.sidebarmenu .logoname{
+    font-size: 1.6rem;
+    color: wheat;
+    padding: 15px 30px;
+    line-height: 50px;
+}
+.menuitems .item a{
+    padding: 15px 30px;
+    display: block;
+    margin: 0px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: white;
+    line-height: 50px;
+}
+.menuitems .item a:hover{
+    background-color: rgb(78, 8, 63);
+    transition: 0.1s ease-in;
+    padding-left: 25px ;
+    display: block;
+}
+.iclass{
+    margin-left:15px ;
+}
+.menuitems .item i{
+    margin-right:20px ;
+}
+.menuitems .item .sub{
+    position: absolute;
+    left: 250px;
+    background: rgba(225, 225, 225, 0.282);
+    width: 200px;
+    border-radius: 10px;
+    top:0;
+    display: none;
+}
+.menuitems .contact{
+    position: relative;
+}
+.menuitems .contact:hover .sub{
+    display: block;
+}
+
+#crosscheck,
+#check{
+    display: none;
+}
+.menubtn i{
+    position: relative;
+    font-size: 3rem;
+    color: aliceblue;
+}
+.crossbtn i{
+    font-size: 3rem;
+    color: aliceblue;
+    cursor: pointer;
+    position: absolute;
+    left: 257px;
+    top: 20px;
+}
+.menubtn i:hover{
+    font-size: 3.5rem;
+}
+.crossbtn i:hover{
+    font-size: 3.5rem;
+}
+#check:checked ~.sidebarmenu{
+    left: 0px;
+}
